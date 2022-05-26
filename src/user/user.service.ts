@@ -27,16 +27,16 @@ export class UserService {
     return await newUser.save();
   }
 
-  findAll() {
-    return `This action returns all user`;
+  async findAll(): Promise<IUser[]> {
+    return await this.model.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  async findOne(id: string): Promise<IUser> {
+    return await this.model.findById(id);
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(id: string, updateUserDto: UpdateUserDto) {
+    return await this.model.findByIdAndUpdate(id, updateUserDto,{new: true} );
   }
 
   remove(id: number) {
