@@ -11,10 +11,12 @@ import { UserModule } from './user/user.module';
       envFilePath: ['.env.development'],
       isGlobal: true
     }),
-    MongooseModule.forRoot(process.env.URI_MONGODB,{
-      useCreateIndex: true,
-      useFindAndModify: false
-    }),
+    
+    MongooseModule.forRoot(process.env.URI_MONGODB),
+    //MongooseModule.forRoot('mongodb://localhost:27017/superFlights'),
+    //  {useCreateIndex: true,
+    //   useFindAndModify: false
+    // }),
     UserModule
   ],
   controllers: [AppController],
